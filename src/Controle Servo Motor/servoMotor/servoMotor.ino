@@ -12,6 +12,7 @@ int referencia; //Varialvel global para ser usadada no SETUP e LOOP
 void setup()
 {
   millis();//Inicia registrador de tempo
+  inicializa_pinagem();
   #ifdef SERIAL
     Serial.begin(115200); 
     #ifdef PID
@@ -19,20 +20,17 @@ void setup()
     #else
       Serial.println("testeSS = [");
     #endif
+    while ( Serial.available()) {Serial.read();} //Esvasie a pilha
+    while (!Serial.available()) {}                //Espere algo ser digitado na serial
+    while ( Serial.available()) {Serial.read();} //Esvasie a pilha
   #endif
-  
-  inicializa_pinagem();
-  
-  while ( Serial.available()) {Serial.read();} //Esvasie a pilha
-  while (!Serial.available()) {}                 //Espere algo ser digitado na serial
-  while ( Serial.available()) {Serial.read();} //Esvasie a pilha
   referencia = leiaAngulo();  
 }
 
 void loop()
 {
     static unsigned long tempo_anterior = 0, tempo_atual;
-    static int ScA=0;//Sinal de controle anterior
+    static int ScA=0;//Sinal de controle anterior | Tem que ser inteiro pois o Sinal de controle real é 9bits (-255|+255)
 
     #if FILTRO>1
       double     angulo = leiaAnguloFiltrado();
