@@ -1,6 +1,6 @@
 #define PWM_MT_HORARIO      5
 #define PWM_MT_ANTIHORARIO  6
-#define PWM_ZM             70
+#define PWM_ZM             50
 #define PWM_SAT           255
 
 #define POTENCIOMETRO       0
