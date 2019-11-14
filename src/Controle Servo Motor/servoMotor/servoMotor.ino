@@ -2,8 +2,8 @@
 //#define PID         //Define Controlador - Comente para Espaço de Sstados (SS)
 #define SERIAL      //Define Serial - Comente para Desabilitar
 
-#define FILTRO     200//1 comenta o codigo
-#define INVFILTRO   0.005 //agilizar conta
+#define FILTRO     100//1 comenta o codigo
+#define INVFILTRO   0.01 //agilizar conta
 
 #include "sensores_atuadores.h"
 #include "controladores.h"
