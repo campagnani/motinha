@@ -4,7 +4,7 @@
 #define PWM_SAT           255
 
 #define POTENCIOMETRO       0
-#define OFFSET             22
+#define OFFSET             0
 
 
 
